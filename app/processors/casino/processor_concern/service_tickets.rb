@@ -27,6 +27,7 @@ module CASino
       end
 
       def clean_service_url(dirty_service)
+        dirty_service = dirty_service.force_encoding('UTF-8')
         return dirty_service if dirty_service.blank?
         service_uri = Addressable::URI.parse dirty_service
         unless service_uri.query_values.nil?
